@@ -2,7 +2,7 @@ import requests
 import os
 import json
 from flask import Flask
-#from requests_oauthlib import OAuth1
+from requests_oauthlib import OAuth1
 
 app = Flask(__name__)
 @app.route('/')
@@ -14,7 +14,7 @@ def ApiCalls():
     headers = {
     'Authorization': "Bearer " + str(s3)
     }
-
+    
     response = requests.request("GET", url, headers=headers, params=querystring)
     json_body = response.json()
     return(json.dumps(json_body, indent=2))
