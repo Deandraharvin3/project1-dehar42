@@ -3,8 +3,6 @@ import os
 import json
 from flask import Flask
 from requests_oauthlib import OAuth1
-from boto.s3.connection import S3Connection
-
 
 app = Flask(__name__)
 @app.route('/')
@@ -13,7 +11,7 @@ def Genius():
     url = "https://api.genius.com//artists/1000403/songs"
 
     headers = {
-    'Authorization': "Bearer a8F2EXfoIAGgFbjoM4BIRJOTe4vmsVdfStdENraRr3wjedqKwopXfqCRU3uDSdpd"
+    'Authorization': "Bearer " + str(os.getenv("GENIUS_BEARER"))
     }
 
     response = requests.request("GET", url, headers=headers)
