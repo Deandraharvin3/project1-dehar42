@@ -5,14 +5,14 @@ from flask import Flask
 from requests_oauthlib import OAuth1
 from boto.s3.connection import S3Connection
 
-
 app = Flask(__name__)
 @app.route('/')
 
 def ApiCalls():
     url = "https://api.twitter.com/1.1/search/tweets.json"
     querystring = {"q":"@HERMusicx"}
-    s3 = S3Connection(os.environ['TWITTER_BEARER'])
+    s3 = S3Connection(os.environ["TWITTER_BEARER"])
+
     headers = {
     'Authorization': "Bearer " + s3
     }
