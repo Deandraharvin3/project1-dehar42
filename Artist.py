@@ -17,19 +17,17 @@ def ApiCalls():
     
     response = requests.request("GET", url, headers=headers, params=querystring)
     json_body = response.json()
-    #return(json.dumps(json_body, indent=2))
-    return (json_body["statuses"][0]["text"])
-    #print(response.text)
     
-def Genius():
     url = "https://api.genius.com//artists/1000403/songs"
 
     headers = {
     'Authorization': "Bearer " + str(os.getenv("GENIUS_BEARER"))
     }
 
-    response = requests.request("GET", url, headers=headers)
-    json_body = response.json()
-    return(json_body["response"]["songs"][0]["header_image_url"])
+    response2 = requests.request("GET", url, headers=headers)
+    json_body2 = response2.json()
+    #return(json.dumps(json_body, indent=2))
+    return (json_body["statuses"][0]["text"], json_body2["response"]["songs"][0]["header_image_url"])
+    #print(response.text)
     
 app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)), debug=True)
