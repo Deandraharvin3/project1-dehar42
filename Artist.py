@@ -23,6 +23,7 @@ def GetData():
     url=genius_path["url"], 
     tweet=twitter_path["text"],
     profile_photo=twitter_path["user"]["profile_image_url"],
-    username=twitter_path["user"]["screen_name"])
+    username=twitter_path["user"]["screen_name"],
+    name=twitter_path["user"]["name"])
 
 app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)), debug=True)
