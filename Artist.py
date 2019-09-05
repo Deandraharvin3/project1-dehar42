@@ -7,11 +7,13 @@ app = Flask(__name__)
 @app.route('/')
 
 def GetData():
-    random_num = random.randint(1, 10)
+    
     genius_response = Genius.ApiCall()
+    random_num = random.randint(0, len(genius_response["response"]["songs"])-1)
     genius_path = genius_response["response"]["songs"][random_num]
 
     twitter_response = Twitter.ApiCall()
+    random_num = random.randint(0, len(twitter_response["statuses"])-1)
     twitter_path = twitter_response["statuses"][random_num]["text"]
     
     

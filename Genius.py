@@ -7,7 +7,7 @@ def ApiCall():
     url = "https://api.genius.com/artists/1000403/songs"
     my_header = {
     'Authorization': "Bearer dQx41Lpv5wZe0lQgJTdS1TQonqDkmHcX9D0iL2PEEOAO3O6zxD9BFIklPBuRCDAb" 
-    # when it works use this os.getenv("GENIUS_BEARER")
+    # unable to use os.getenv("GENIUS_BEARER")
     }
     response = requests.get(url, headers=my_header)
     json_body = response.json()

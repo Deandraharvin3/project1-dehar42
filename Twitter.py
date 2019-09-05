@@ -9,7 +9,7 @@ def ApiCall():
 
     my_header = {
     'Authorization': "Bearer AAAAAAAAAAAAAAAAAAAAAJka%2FwAAAAAAojV620pev5aGxblqbbMvHMAX85w%3DbSNBhEMnJsYtbvqcmD2NaRACTjKle7100VonCzpos9pMnym8CV"
-    # when its works used this os.getenv("TWITTER_BEARER")
+    # unable to use os.getenv("TWITTER_BEARER")
     }
     response = requests.get(url, headers=my_header)
     return (response.json())
